@@ -1,5 +1,9 @@
 package com.revature.eval.java.core;
 
+
+
+import static org.junit.Assert.assertEquals;
+
 import java.time.temporal.Temporal;
 import java.util.List;
 import java.util.Map;
@@ -14,9 +18,22 @@ public class EvaluationService {
 	 * @return
 	 */
 	public String reverse(String string) {
+		String s = string;
+		String temp = "";
+		int length = s.length();
 		
-		return "";
+	for(int i = length -1; i>= 0; i--) {
+		temp = temp + s.charAt(i);
 	}
+	
+	System.out.println(temp);
+	
+	return temp;
+
+}
+	
+	
+	
 
 	/**
 	 * 2. Convert a phrase to its acronym. Techies love their TLA (Three Letter
@@ -26,9 +43,11 @@ public class EvaluationService {
 	 * @param phrase
 	 * @return
 	 */
-	public String acronym(String phrase) {
-		// TODO Write an implementation for this method declaration
-		return null;
+	public String acronym (String phrase) {
+		// TODO Write an implementation for this method declaration	
+		
+
+	return null;
 	}
 
 	/**
@@ -98,7 +117,7 @@ public class EvaluationService {
 	}
 
 	/**
-	 * 4. Given a word, compute the scrabble score for that word.
+	 * 4. Given a word,  .
 	 * 
 	 * --Letter Values-- Letter Value A, E, I, O, U, L, N, R, S, T = 1; D, G = 2; B,
 	 * C, M, P = 3; F, H, V, W, Y = 4; K = 5; J, X = 8; Q, Z = 10; Examples
