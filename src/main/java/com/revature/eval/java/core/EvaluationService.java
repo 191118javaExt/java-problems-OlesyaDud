@@ -1,10 +1,9 @@
 package com.revature.eval.java.core;
 
-
-
-import static org.junit.Assert.assertEquals;
+//import static org.unit.Assert.assertEquals;
 
 import java.time.temporal.Temporal;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,19 +20,16 @@ public class EvaluationService {
 		String s = string;
 		String temp = "";
 		int length = s.length();
-		
-	for(int i = length -1; i>= 0; i--) {
-		temp = temp + s.charAt(i);
-	}
-	
-	System.out.println(temp);
-	
-	return temp;
 
-}
-	
-	
-	
+		for (int i = length - 1; i >= 0; i--) {
+			temp = temp + s.charAt(i);
+		}
+
+		System.out.println(temp);
+
+		return temp;
+
+	}
 
 	/**
 	 * 2. Convert a phrase to its acronym. Techies love their TLA (Three Letter
@@ -43,11 +39,16 @@ public class EvaluationService {
 	 * @param phrase
 	 * @return
 	 */
-	public String acronym (String phrase) {
-		// TODO Write an implementation for this method declaration	
-		
+	public String acronym(String phrase) {
+		String[] someName = phrase.split(" |-");
+		StringBuilder sbName = new StringBuilder();
 
-	return null;
+		for (int i = 0; i < someName.length; i++) {
+			sbName.append(someName[i].charAt(0));
+		}
+		String acro = sbName.toString();
+		acro = acro.toUpperCase();
+		return acro;
 	}
 
 	/**
@@ -99,25 +100,49 @@ public class EvaluationService {
 			this.sideThree = sideThree;
 		}
 
+//		public boolean isEquilateral() {
+//			// TODO Write an implementation for this method declaration
+//			return false;
+//		}
+//
+//		public boolean isIsosceles() {
+//			// TODO Write an implementation for this method declaration
+//			return false;
+//		}
+//
+//		public boolean isScalene() {
+//			// TODO Write an implementation for this method declaration
+//			return false;
+//		}
+
 		public boolean isEquilateral() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			if ((sideOne == sideTwo) && (sideOne == sideThree)) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 		public boolean isIsosceles() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			if (((sideOne == sideTwo) && (sideOne != sideThree)) || ((sideOne == sideThree) && (sideOne != sideTwo))
+					|| ((sideTwo == sideThree) && (sideTwo != sideOne))) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 		public boolean isScalene() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			if ((sideOne != sideTwo) && (sideOne != sideThree) && (sideTwo != sideThree)) {
+				return true;
+			} else {
+				return false;
+			}
 		}
-
 	}
 
 	/**
-	 * 4. Given a word,  .
+	 * 4. Given a word, .
 	 * 
 	 * --Letter Values-- Letter Value A, E, I, O, U, L, N, R, S, T = 1; D, G = 2; B,
 	 * C, M, P = 3; F, H, V, W, Y = 4; K = 5; J, X = 8; Q, Z = 10; Examples
@@ -132,8 +157,62 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		char[] one = { 'A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T' };
+		char[] two = { 'D', 'G' };
+		char[] three = { 'B', 'C', 'M', 'P' };
+		char[] four = { 'F', 'H', 'V', 'W', 'Y' };
+		char[] five = { 'K' };
+		char[] six = { 'J', 'X' };
+		char[] seven = { 'Q', 'Z' };
+
+		int score = 0;
+		string = string.toUpperCase();
+
+		for (int i = 0; i < string.length(); i++) {
+
+			for (int k = 0; k < one.length; k++) {
+				if (string.charAt(i) == one[k]) {
+					score++;
+				}
+			}
+			for (int k = 0; k < two.length; k++) {
+				if (string.charAt(i) == two[k]) {
+					score += 2;
+				}
+			}
+
+			for (int k = 0; k < three.length; k++) {
+				if (string.charAt(i) == three[k]) {
+					score += 3;
+				}
+			}
+
+			for (int k = 0; k < four.length; k++) {
+				if (string.charAt(i) == four[k]) {
+					score += 4;
+				}
+			}
+
+			for (int k = 0; k < five.length; k++) {
+				if (string.charAt(i) == five[k]) {
+					score += 5;
+				}
+			}
+
+			for (int k = 0; k < six.length; k++) {
+				if (string.charAt(i) == six[k]) {
+					score += 8;
+				}
+			}
+
+			for (int k = 0; k < seven.length; k++) {
+				if (string.charAt(i) == seven[k]) {
+					score += 10;
+				}
+			}
+		}
+	System.out.println(score);
+		return score;
 	}
 
 	/**
@@ -168,8 +247,8 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+	 return null;
 	}
 
 	/**
@@ -182,7 +261,9 @@ public class EvaluationService {
 	 * @return
 	 */
 	public Map<String, Integer> wordCount(String string) {
-		// TODO Write an implementation for this method declaration
+			
+		
+		
 		return null;
 	}
 
