@@ -334,6 +334,8 @@ public class EvaluationServiceTest {
 	public void testAWholePhrase() {
 		assertEquals("ickquay astfay unray", evaluationService.toPigLatin("quick fast run"));
 	}
+	
+	
 
 	/*******************************************************************
 	 * Question 9
